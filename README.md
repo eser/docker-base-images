@@ -74,4 +74,4 @@ Since this project is driven by the need for newer versions, expect more frequen
 
 ## License
 
-This project is licensed under the Apache-2.0 License. (Assuming you want to keep the same license as the AWS example and what's in your `LICENSE` file. Please update if different.)
+This project is licensed under the Apache-2.0 License. See [LICENSE](LICENSE) file for details.
