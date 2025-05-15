@@ -1,15 +1,8 @@
-# Eser's AWS Lambda Base Images
+# Eser's Docker Base Images
 
-This repository provides custom-built base images for AWS Lambda, focusing on offering more up-to-date project versions than those available in the official AWS Lambda base image repository.
+This repository provides custom-built base images for docker, focusing on offering more up-to-date project versions than those available in the official base image repositories.
 
 My initial motivation was to provide the latest versions of projects that are not yet available or quickly updated in AWS's official offerings.
-
-## What's Provided?
-
-These images are built to be compatible with the AWS Lambda environment and include:
-
-*   Official Debian base images.
-*   The Lambda Runtime Interface Client (RIC).
 
 ## Available Images
 
@@ -17,13 +10,12 @@ Images are published to Docker Hub under my profile: [https://hub.docker.com/u/e
 
 The following images are available or in development:
 
-| Project   | Version | Docker Image                 | Docker Hub Link                                                                    |
-| :-------- | :------ | :--------------------------- | :--------------------------------------------------------------------------------- |
-| Node.js   | 24.x    | `eserozvataf/nodejs-lambda:24` | [eserozvataf/nodejs-lambda:24](https://hub.docker.com/r/eserozvataf/nodejs-lambda/tags?name=24) |
-| Deno      | TBD     | `eserozvataf/deno-lambda:latest` (example) | (Coming Soon)                                                                      |
+| Image                  | Version | Docker Image                     | Docker Hub Link                                                                                 |
+|:-----------------------|:--------|:---------------------------------|:------------------------------------------------------------------------------------------------|
+| Node.js for AWS Lambda | 24.x    | `eserozvataf/nodejs-lambda:24`   | [eserozvataf/nodejs-lambda:24](https://hub.docker.com/r/eserozvataf/nodejs-lambda/tags?name=24) |
+| Deno for AWS Lambda    | TBD     | `eserozvataf/deno-lambda:latest` | (Coming Soon)                                                                                   |
+| Go for AWS Lambda      | TBD     | `eserozvataf/go-lambda:latest`   | (Coming Soon)                                                                                   |
 
-*   The Node.js image is located in the `nodejs-lambda` directory in this repository. It includes a primary Dockerfile and examples for simple and multi-stage builds.
-*   An image for the Deno runtime is currently in development.
 
 ## Usage
 
@@ -39,6 +31,7 @@ docker pull eserozvataf/nodejs-lambda:24
 
 Then, you can use `eserozvataf/nodejs-lambda:24` as the base image in your application's `Dockerfile`.
 
+
 ### Building an Image Locally
 
 **Requirements:**
@@ -48,7 +41,7 @@ Then, you can use `eserozvataf/nodejs-lambda:24` as the base image in your appli
 
 1.  **Clone this repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/eser/docker-base-images.git
     cd docker-base-images
     ```
 
