@@ -1,0 +1,37 @@
+# versions
+
+FROM eserozvataf/nodejs-lambda:24 AS upstream-builder
+FROM gcr.io/distroless/nodejs24-debian12 AS upstream-runner
+
+# Create a minimal image base-debian12 or static-debian12
+# (see: https://github.com/GoogleContainerTools/distroless#why-should-i-use-distroless-images)
+
+# ------------------
+# builder image
+# ------------------
+FROM upstream-builder AS builder
+
+# install dependencies first to improve caching
+COPY ./package.json ./package-lock.json ./
+RUN npm ci --omit=dev
+
+# -----------------------
+# runner image
+# -----------------------
+FROM upstream-runner AS runner
+
+# set working directory to function root directory
+WORKDIR /function
+
+# copy in the built dependencies
+# COPY --from=builder /bin/sh /bin/sh
+# COPY --from=builder /bin/cat /bin/cat
+COPY --from=builder /usr/local/lib/node_modules/aws-lambda-ric /usr/local/lib/node_modules/aws-lambda-ric
+COPY --from=builder /usr/local/bin/aws-lambda-ric /usr/local/bin/aws-lambda-ric
+COPY --from=builder . ./
+
+# copy the rest of the application
+COPY . ./
+
+# pass the name of the function handler as an argument to the runtime
+CMD ["index.handler"]
