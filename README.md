@@ -19,7 +19,7 @@ The following images are available or in development:
 
 | Project   | Version | Docker Image                 | Docker Hub Link                                                                    |
 | :-------- | :------ | :--------------------------- | :--------------------------------------------------------------------------------- |
-| Node.js   | 24.x    | `eserozvataf/nodejs-lambda:24` | [eserozvataf/nodejs-lambda:24](https://hub.docker.com/layers/eserozvataf/nodejs-lambda/24) |
+| Node.js   | 24.x    | `eserozvataf/nodejs-lambda:24` | [eserozvataf/nodejs-lambda:24](https://hub.docker.com/r/eserozvataf/nodejs-lambda/tags?name=24) |
 | Deno      | TBD     | `eserozvataf/deno-lambda:latest` (example) | (Coming Soon)                                                                      |
 
 *   The Node.js image is located in the `nodejs-lambda` directory in this repository. It includes a primary Dockerfile and examples for simple and multi-stage builds.
